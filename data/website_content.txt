@@ -1,0 +1,4 @@
+Cloud computing is the delivery of computing services over the internet.
+It includes Infrastructure as a Service, Platform as a Service, and Software as a Service.
+Amazon Web Services, Microsoft Azure, and Google Cloud are major providers.
+Cloud computing offers scalability, cost efficiency, and high availability.
