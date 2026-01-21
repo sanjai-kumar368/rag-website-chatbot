@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #343541;
+    font-family: Arial, sans-serif;
+    color: #eaeaea;
+}
+
+/* Layout */
+.page {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.chat-wrapper {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 12px;
+}
+
+/* Chat area */
+.chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+/* Empty state */
+.empty-state {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #aaa;
+}
+
+.fire-logo-img {
+    width: 130px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.8));
+}
+
+.empty-state p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Messages */
+.text-msg {
+    max-width: 720px;
+    font-size: 15px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+/* User messages */
+.text-msg.user {
+    text-align: right;
+    color: #9fd3ff;
+    margin-left: auto;
+    margin-bottom: 14px;
+}
+
+/* Bot messages */
+.text-msg.bot {
+    text-align: left;
+    color: #eaeaea;
+}
+
+/* WhatsApp-style bot DP */
+.bot-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.bot-dp {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Input area */
+.input-area {
+    display: flex;
+    padding: 14px;
+    border-top: 1px solid #555;
+    background: #343541;
+    position: sticky;
+    bottom: 0;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+.input-area button {
+    margin-left: 10px;
+    padding: 0 16px;
+    border-radius: 6px;
+    border: none;
+    background: #19c37d;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Clear conversation button */
+.clear-box {
+    margin-left: 10px;
+    padding: 0 16px;
+    border-radius: 6px;
+    border: none;
+    background: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+}
+
+.clear-box:hover {
+    background: #1d4ed8;
+}
+
+.clear-box:active {
+    background: #1e40af;
+}
+
+/* Empty-state input positioning */
+.chat-wrapper:has(.empty-state) .chat-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-wrapper:has(.empty-state) .empty-state {
+    margin-bottom: 80px;
+}
+
+.chat-wrapper:has(.empty-state) .input-area {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 520px;
+    padding: 10px;
+    background: transparent;
+    border-top: none;
+}
+
+.chat-wrapper:has(.empty-state) .input-area input,
+.chat-wrapper:has(.empty-state) .input-area button,
+.chat-wrapper:has(.empty-state) .clear-box {
+    height: 44px;
+}
+
+/* Hide clear button when empty */
+.chat-wrapper:has(.empty-state) .clear-box {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fire-logo-img {
+        width: 90px;
+    }
+
+    .chat-wrapper:has(.empty-state) .input-area {
+        max-width: 90%;
+        top: 63%;
+    }
+}
