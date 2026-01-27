@@ -35,17 +35,29 @@
                 </div>
                 {% endif %}
                 {% endfor %}
+                <div id="typing-indicator" class="typing-indicator" style="display:none;">
+                    FireBot is thinking<span class="dots">...</span>
+                </div>
+
 
             </div>
 
-            <form method="POST" class="input-area">
+            <form method="POST" class="input-area" onsubmit="showTyping()">
+
                 <input type="text" name="query" placeholder="Send a message..." required>
                 <button type="submit">➤</button>
-                <a href="/clear" class="clear-box">Clear conversation</a>
+                <a href="/clear" class="clear-box">Clear</a>
             </form>
 
         </div>
     </div>
+    <script>
+        function showTyping() {
+            const indicator = document.getElementById("typing-indicator");
+            if (indicator) indicator.style.display = "block";
+        }
+    </script>
+
 
 </body>
 

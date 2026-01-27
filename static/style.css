@@ -197,3 +197,27 @@ body {
         top: 63%;
     }
 }
+
+/* --- TYPING INDICATOR --- */
+
+.typing-indicator {
+  font-size: 14px;
+  color: #aaa;
+  margin: 10px 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.typing-indicator .dots {
+  animation: blink 1.4s infinite both;
+}
+
+@keyframes blink {
+  0% { opacity: .2; }
+  20% { opacity: 1; }
+  100% { opacity: .2; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

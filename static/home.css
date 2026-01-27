@@ -42,7 +42,9 @@ body {
 }
 
 .nav-logo {
-  height: 26px;
+  height: 65px;
+  width: auto;
+
 }
 
 .nav a {
@@ -107,6 +109,10 @@ body {
 
 /* ================= FEATURES ================= */
 
+/* ================= FEATURES (IMAGE AS CARD) ================= */
+
+/* ================= FEATURES ================= */
+
 .features {
   padding: 60px 0;
   background: #f2f2f2;
@@ -118,22 +124,65 @@ body {
   gap: 30px;
 }
 
+/* Feature card as image */
 .feature-card {
-  background: #ffffff;
-  text-align: center;
-  padding: 30px;
-  border-radius: 8px;
+  height: 180px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-card img {
-  height: 70px;
-  margin-bottom: 15px;
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.25);
 }
 
-.feature-card p {
-  font-size: 16px;
+/* Overlay gradient */
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.15)
+  );
+}
+
+/* Text on image */
+.feature-card span {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 18px;
   font-weight: 600;
+  line-height: 1.3;
 }
+
+/* Background images */
+.feature-users {
+  background-image: url("images/feature-users.png");
+}
+
+.feature-speed {
+  background-image: url("images/feature-speed.png");
+}
+
+.feature-coverage {
+  background-image: url("images/feature-coverage.png");
+}
+
 
 /* ================= PLANS ================= */
 
@@ -321,4 +370,37 @@ body {
   flex: 1;
   width: 100%;
   border: none;
+}
+/* --- FORCE CHAT CLOSE BUTTON CLICKABLE --- */
+
+.chat-header {
+  position: relative;
+  z-index: 10002;
+}
+
+.chat-close {
+  position: relative;
+  z-index: 10003;
+  pointer-events: auto;
+}
+
+.chat-modal iframe {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+/* Plan add-ons */
+.addon-title {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+.addon-list {
+  list-style: disc;
+  padding-left: 18px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #333;
 }

@@ -1,9 +1,9 @@
-from flask import Flask, request, render_template, session, redirect, url_for
+from flask import Flask, request, render_template, session, redirect, url_for, jsonify
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain_ollama import OllamaLLM
 from langchain_core.prompts import PromptTemplate
+from langchain_groq import ChatGroq
 import os
 
 # ============================================================
@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.secret_key = "super-secret-key-123"
 
 # ============================================================
-# LOAD WEBSITE CONTENT (RAG SOURCE)
+# LOAD WEBSITE CONTENT
 # ============================================================
 
 with open("data/website_content.txt", "r", encoding="utf-8") as f:
@@ -29,11 +29,11 @@ embeddings = HuggingFaceEmbeddings(
 )
 
 # ============================================================
-# LOCAL LLM (OLLAMA)
+# GROQ LLM (FIXED MODEL)
 # ============================================================
 
-llm = OllamaLLM(
-    model="llama3",
+llm = ChatGroq(
+    model="llama-3.1-8b-instant",
     temperature=0.2
 )
 
@@ -46,9 +46,8 @@ prompt = PromptTemplate(
     template="""
 You are a customer support assistant for SkyNet Fiber.
 
-Answer ONLY using the context.
-Use bullet points if needed.
-If the answer is not found, clearly say you do not have that information.
+Answer ONLY using the context below.
+If the answer is not present, say clearly that you do not have that information.
 
 Context:
 {context}
@@ -81,18 +80,34 @@ else:
 retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
 # ============================================================
+# HELPER FUNCTION
+# ============================================================
+
+def generate_answer(query: str) -> str:
+    docs = retriever.invoke(query)
+
+    if not docs:
+        return "I can answer only SkyNet Fiber related questions."
+
+    context = "\n\n".join(d.page_content for d in docs)
+
+    response = llm.invoke(
+        prompt.format(
+            context=context,
+            question=query
+        )
+    )
+
+    return response.content.strip()
+
+# ============================================================
 # ROUTES
 # ============================================================
 
-# 🔹 HOME PAGE (ISP WEBSITE)
-# Opens FIRST when app.py is executed
 @app.route("/")
 def home():
     return render_template("home.html")
 
-
-# 🔹 CHATBOT PAGE
-# Opens when Chat button is clicked
 @app.route("/chat", methods=["GET", "POST"])
 def chat():
     if "chat" not in session:
@@ -104,28 +119,10 @@ def chat():
         if not query:
             return redirect(url_for("chat"))
 
-        # Greeting shortcut
         if query in ["hi", "hello", "hey", "hii", "hai"]:
-            answer = "Hello 👋 How can I help you today?\n\nAre your doubts clarified?"
+            answer = "Hello. How can I help you today?"
         else:
-            docs = retriever.invoke(query)
-
-            if not docs:
-                answer = (
-                    "I can answer only SkyNet Fiber related queries.\n\n"
-                    "Are your doubts clarified?"
-                )
-            else:
-                context = "\n\n".join(d.page_content for d in docs)
-                answer = (
-                    llm.invoke(
-                        prompt.format(
-                            context=context,
-                            question=query
-                        )
-                    ).strip()
-                    + "\n\nAre your doubts clarified?"
-                )
+            answer = generate_answer(query)
 
         session["chat"].append(("user", query))
         session["chat"].append(("bot", answer))
@@ -133,13 +130,21 @@ def chat():
 
     return render_template("index.html", chat=session["chat"])
 
+@app.route("/api/chat", methods=["POST"])
+def api_chat():
+    data = request.get_json()
+    query = data.get("query", "").strip()
 
-# 🔹 CLEAR CHAT
+    if not query:
+        return jsonify({"error": "Empty query"}), 400
+
+    answer = generate_answer(query)
+    return jsonify({"answer": answer})
+
 @app.route("/clear")
 def clear_chat():
     session.pop("chat", None)
     return redirect(url_for("chat"))
-
 
 # ============================================================
 # RUN SERVER

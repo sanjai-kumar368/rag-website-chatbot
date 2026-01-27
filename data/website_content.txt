@@ -146,3 +146,245 @@ Customer Care: 1800-890-2020
 Email: support@skynetfiber.in
 
 SkyNet Fiber is committed to delivering fast, secure, and affordable internet services.
+Network Frequency and Signal Quality
+
+SkyNet Fiber operates on a wired fiber-optic network, which does not rely on radio frequencies for last-mile internet delivery. This eliminates common wireless issues such as signal interference, congestion, and weather-related disruptions.
+
+For in-home connectivity, Wi-Fi routers provided by SkyNet Fiber operate on standard Wi-Fi frequency bands to distribute internet within the premises.
+
+Wi-Fi Frequency Bands Explained
+
+SkyNet Fiber routers support dual-band Wi-Fi technology.
+
+2.4 GHz Frequency Band
+
+Provides wider coverage area
+
+Penetrates walls and obstacles more effectively
+
+Suitable for browsing, emails, messaging, and smart devices
+
+Recommended for larger homes where distance coverage is required
+
+5 GHz Frequency Band
+
+Provides higher internet speeds
+
+Lower interference from neighboring networks
+
+Ideal for online gaming, video conferencing, HD and 4K streaming
+
+Best used when devices are closer to the router
+
+Customers can choose the preferred band based on usage requirements.
+
+Internet Speed Consistency and Performance
+
+SkyNet Fiber plans offer consistent speeds with minimal fluctuation due to:
+
+Dedicated fiber infrastructure
+
+Low network contention
+
+Advanced traffic management
+
+Modern backend routing systems
+
+Speed performance may vary slightly based on:
+
+Number of connected devices
+
+Router placement
+
+Device capabilities
+
+Background downloads or updates
+
+Latency and Ping Performance
+
+SkyNet Fiber provides low-latency internet suitable for real-time applications such as:
+
+Online gaming
+
+Video calls and conferencing
+
+Cloud-based work tools
+
+Live streaming
+
+Average latency ranges between 5 ms to 15 ms within the local network, depending on location and server proximity.
+
+Data Usage Policy
+
+All SkyNet Fiber plans include unlimited data usage.
+
+No daily data caps
+
+No speed throttling after usage limits
+
+Fair usage policy ensures equal performance for all users
+
+Customers can use the internet freely for streaming, downloads, gaming, and work-related activities.
+
+Network Reliability and Uptime
+
+SkyNet Fiber maintains high network uptime through:
+
+Redundant backbone links
+
+Continuous network monitoring
+
+Automatic fault detection systems
+
+Scheduled maintenance during low-traffic hours
+
+In case of outages, restoration is prioritized and customers are informed through SMS or email notifications.
+
+Home Network Optimization Tips
+
+To achieve the best performance at home, customers are advised to:
+
+Place the router in a central location
+
+Avoid placing the router near metal objects or thick walls
+
+Restart the router periodically
+
+Update router firmware when available
+
+Limit the number of high-bandwidth devices running simultaneously
+
+Coverage Inside Homes and Buildings
+
+SkyNet Fiber provides strong internal coverage depending on:
+
+Router capability
+
+Home layout and wall materials
+
+Additional access points if required
+
+For larger homes or multi-floor buildings, mesh Wi-Fi or additional access points can be installed upon request.
+
+Security Features
+
+SkyNet Fiber prioritizes network security by offering:
+
+Encrypted data transmission
+
+Secure router configurations
+
+Protection against unauthorized access
+
+Firewall-enabled routers
+
+Customers are advised to change default Wi-Fi passwords after installation.
+
+Static IP and Advanced Networking
+
+SkyNet Fiber offers optional static IP services for:
+
+Businesses
+
+Remote server access
+
+CCTV systems
+
+Hosting applications
+
+Static IP services are available as an add-on for eligible plans.
+
+Parental Controls and Device Management
+
+Supported routers allow customers to:
+
+Monitor connected devices
+
+Restrict internet access by time
+
+Block unwanted websites
+
+Manage bandwidth usage per device
+
+These features help families maintain safe and controlled internet usage.
+
+OTT and Streaming Support
+
+SkyNet Fiber plans are optimized for OTT platforms including:
+
+Netflix
+
+Amazon Prime Video
+
+YouTube
+
+Hotstar
+
+Zee5
+
+Sony LIV
+
+Streaming is smooth with minimal buffering even during peak hours.
+
+Gaming Support
+
+SkyNet Fiber is suitable for online gaming due to:
+
+Low ping
+
+Stable upload and download speeds
+
+Minimal packet loss
+
+Popular gaming platforms such as PC, console, and mobile games perform efficiently.
+
+Service Upgrade and Downgrade Policy
+
+Customers can change plans anytime.
+
+No cancellation charges
+
+Changes applied within 24 hours
+
+Billing adjusted in the next cycle
+
+Customer Education and Transparency
+
+SkyNet Fiber ensures transparency by:
+
+Providing clear billing information
+
+Offering detailed plan descriptions
+
+Maintaining open communication channels
+
+Frequently Asked Customer Questions (Additional)
+Does SkyNet Fiber slow down at night?
+
+No. SkyNet Fiber maintains consistent speeds throughout the day and night.
+
+Can multiple users stream simultaneously?
+
+Yes. Plans are designed to support multiple devices and concurrent streaming.
+
+Is SkyNet Fiber suitable for work-from-home?
+
+Yes. It provides stable speeds, low latency, and reliable connectivity.
+
+Does SkyNet Fiber block websites?
+
+No. SkyNet Fiber does not block any legal websites.
+
+Is there a lock-in period?
+
+No mandatory lock-in period applies to monthly plans.
+
+Future Technology Readiness
+
+SkyNet Fiber infrastructure supports future upgrades including:
+
+Higher bandwidth plans
+
+Advanced Wi-Fi standards
+
+Smart home integrations
