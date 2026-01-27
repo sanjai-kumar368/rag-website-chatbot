@@ -46,8 +46,15 @@ body {
 .fire-logo-img {
     width: 130px;
     margin-bottom: 12px;
-    filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.8));
+
+    /* 🔥 make background invisible */
+    background: transparent;
+    mix-blend-mode: screen;
+
+    /* softer glow, no box look */
+    filter: drop-shadow(0 0 12px rgba(255, 140, 0, 0.6));
 }
+
 
 .empty-state p {
     font-size: 16px;

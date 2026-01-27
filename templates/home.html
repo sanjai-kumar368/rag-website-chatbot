@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SkyNet Fiber</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container header-flex">
+
+    <div class="nav-left">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" class="nav-logo" alt="SkyNet">
+      <nav class="nav">
+        <a href="#">Plans</a>
+        <a href="#">Services</a>
+        <a href="#">Entertainment</a>
+        <a href="#">Support</a>
+        <a href="#">About</a>
+      </nav>
+    </div>
+
+    <button class="btn-red">New Connection</button>
+
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div class="hero-text">
+      <h1>
+        SMART IS A WIFI<br>
+        <span>THAT COVERS EVERY ROOM</span>
+      </h1>
+      <p>High-speed fiber broadband for homes & offices</p>
+      <button class="btn-dark">Switch Now</button>
+    </div>
+
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='images/hero.png') }}" alt="Hero">
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="features">
+  <div class="container feature-grid">
+
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='images/feature-users.png') }}">
+      <p>1 Cr+ Happy Customers</p>
+    </div>
+
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='images/feature-speed.png') }}">
+      <p>Equal Upload & Download Speed</p>
+    </div>
+
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='images/feature-coverage.png') }}">
+      <p>Full Home Coverage</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PLANS ================= -->
+<section class="plans">
+  <div class="container">
+
+    <h2 class="plans-title">Best Selling Plans</h2>
+
+    <div class="plan-grid">
+
+      <div class="plan-card">
+        <img src="{{ url_for('static', filename='images/plan-basic.png') }}">
+        <h3>Basic</h3>
+        <p class="speed">50 Mbps</p>
+        <p class="price">₹699 / month</p>
+        <button class="btn-red">Get Plan</button>
+      </div>
+
+      <div class="plan-card highlight">
+        <img src="{{ url_for('static', filename='images/plan-pro.png') }}">
+        <h3>Pro</h3>
+        <p class="speed">200 Mbps</p>
+        <p class="price">₹1299 / month</p>
+        <button class="btn-red">Get Plan</button>
+      </div>
+
+      <div class="plan-card">
+        <img src="{{ url_for('static', filename='images/plan-ultra.png') }}">
+        <h3>Ultra</h3>
+        <p class="speed">300 Mbps</p>
+        <p class="price">₹1599 / month</p>
+        <button class="btn-red">Get Plan</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENTERTAINMENT ================= -->
+<section class="entertainment">
+  <div class="container entertainment-grid">
+
+    <div>
+      <h2>Unlimited Entertainment</h2>
+      <p>400+ live channels & OTT apps</p>
+      <button class="btn-red">Explore</button>
+    </div>
+
+    <img src="{{ url_for('static', filename='images/entertainment.png') }}">
+
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq">
+  <div class="container">
+    <h2>FAQ</h2>
+
+    <details>
+      <summary>Which wifi is best for home?</summary>
+      <p>Fiber broadband with stable speed is best.</p>
+    </details>
+
+    <details>
+      <summary>Which is best broadband?</summary>
+      <p>SkyNet Fiber provides reliable high-speed internet.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <div>
+      <h4>SkyNet Fiber</h4>
+      <p>High-speed internet you can trust.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#">Plans</a>
+      <a href="#">Support</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>support@skynetfiber.com</p>
+      <p>1800-000-000</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ================= FLOATING CHAT BUTTON ================= -->
+<div class="floating-chat" id="openChatBtn">
+  <img src="{{ url_for('static', filename='images/fire_logo.png') }}">
+</div>
+
+<!-- ================= CHAT PANEL ================= -->
+<div id="chatModal" class="chat-modal">
+  <div class="chat-header" id="chatHeader">
+    <span>FireBot</span>
+    <span class="chat-close" id="closeChatBtn">×</span>
+  </div>
+  <iframe src="/chat"></iframe>
+</div>
+
+<!-- ================= JS ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const openBtn = document.getElementById("openChatBtn");
+  const closeBtn = document.getElementById("closeChatBtn");
+  const modal = document.getElementById("chatModal");
+  const header = document.getElementById("chatHeader");
+
+  /* OPEN */
+  openBtn.addEventListener("click", () => {
+    modal.classList.add("open");
+  });
+
+  /* CLOSE */
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("open");
+  });
+
+  /* DRAGGING */
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  header.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    offsetX = e.clientX - modal.offsetLeft;
+    offsetY = e.clientY - modal.offsetTop;
+    modal.style.right = "auto";
+    document.body.style.userSelect = "none";
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    modal.style.left = `${e.clientX - offsetX}px`;
+    modal.style.top = `${e.clientY - offsetY}px`;
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    document.body.style.userSelect = "auto";
+  });
+
+});
+</script>
+
+</body>
+</html>

@@ -1,53 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-<div class="page">
-    <div class="chat-wrapper">
+    <div class="page">
+        <div class="chat-wrapper">
 
-        <div class="chat-box">
+            <div class="chat-box">
 
-            {% if chat|length == 0 %}
+                {% if chat|length == 0 %}
                 <div class="empty-state">
-                    <img src="{{ url_for('static', filename='fire_logo.png') }}"
-                         class="fire-logo-img"
-                         alt="Fire Logo">
+                    <img src="{{ url_for('static', filename='fire_logo.gif') }}" class="fire-logo-img" alt="Fire Logo">
                     <p>Ask queries to FireBot.</p>
                 </div>
-            {% endif %}
+                {% endif %}
 
-            {% for item in chat %}
+                {% for item in chat %}
                 {% if item[0] == "bot" %}
-                    <div class="bot-row">
-                        <img src="{{ url_for('static', filename='fire_logo.png') }}"
-                             class="bot-dp"
-                             alt="Bot DP">
-                        <div class="text-msg bot">
-                            {{ item[1] }}
-                        </div>
-                    </div>
-                {% else %}
-                    <div class="text-msg user">
+                <div class="bot-row">
+                    <img src="{{ url_for('static', filename='fire_logo.png') }}" class="bot-dp" alt="Bot DP">
+                    <div class="text-msg bot">
                         {{ item[1] }}
                     </div>
+                </div>
+                {% else %}
+                <div class="text-msg user">
+                    {{ item[1] }}
+                </div>
                 {% endif %}
-            {% endfor %}
+                {% endfor %}
+
+            </div>
+
+            <form method="POST" class="input-area">
+                <input type="text" name="query" placeholder="Send a message..." required>
+                <button type="submit">➤</button>
+                <a href="/clear" class="clear-box">Clear conversation</a>
+            </form>
 
         </div>
-
-        <form method="POST" class="input-area">
-            <input type="text" name="query" placeholder="Send a message..." required>
-            <button type="submit">➤</button>
-            <a href="/clear" class="clear-box">Clear conversation</a>
-        </form>
-
     </div>
-</div>
 
 </body>
+
 </html>
