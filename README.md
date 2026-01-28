@@ -1,4 +1,4 @@
-<img width="1897" height="860" alt="image" src="https://github.com/user-attachments/assets/5d00bb34-5d65-4135-b215-160ed6003172" /># SkyNet Fiber – RAG-Powered Customer Support Chatbot
+# SkyNet Fiber – RAG-Powered Customer Support Chatbot
 
 SkyNet Fiber is a full-stack web application that simulates a real-world Internet Service Provider (ISP) website integrated with an AI-powered customer support chatbot.  
 The chatbot uses **Retrieval-Augmented Generation (RAG)** to answer user queries strictly based on curated company content.
